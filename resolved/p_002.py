@@ -2,7 +2,7 @@ import os
 import sys
 
 script_dir = os.path.dirname(__file__)
-helper_dir = os.path.join( script_dir, 'helper')
+helper_dir = os.path.join(script_dir, '../helper')
 sys.path.append(helper_dir)
 import functions as f
 
