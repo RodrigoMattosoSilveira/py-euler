@@ -11,7 +11,7 @@ import functions as f
 
 '''
 THE PROBLEM
-The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ?
+The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ? 6857
 
 THE ALGORITHM
 A01 [get target number] tn <-- agr[1]
@@ -37,41 +37,12 @@ primes = []
 factors = []
 
 
-def is_number_prime(_x):
-    number_is_prime = True
-    # print('is_number_prime - %s.' % _x)
-    last_digit = f.get_last_digit(x)
-
-    if _x != 1 and _x != 2 and _x != 3 and _x != 5:
-        if last_digit == 0 or \
-                last_digit == 2 or \
-                last_digit == 4 or \
-                last_digit == 5 or \
-                last_digit == 6 or \
-                last_digit == 8:
-            number_is_prime = False
-        else:
-            # [Is 3 a dividend]
-            aux = _x
-            while aux > 9:
-                aux = f.compute_digits_sum(aux)
-            if aux == 3 or aux == 6 or aux == 9:
-                number_is_prime = False
-            else:
-                for prime in primes:
-                    if prime != 1:
-                        if _x % prime == 0:
-                            number_is_prime = False
-                            break
-    return number_is_prime
-
-
 target = int(sys.argv[1])
 print(' What is the largest prime factor of the number %s.' % target)
 
-target_sqr = int(math.sqrt (target))
-for x in range (1, target_sqr + 1):
-    if is_number_prime(x):
+target_sqr = int(math.sqrt(target))
+for x in range(1, target_sqr + 1):
+    if f.is_number_prime(x, primes):
         print('%s is prime' % x)
         primes.append(x)
         if target % x == 0:
