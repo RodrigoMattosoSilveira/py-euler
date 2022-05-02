@@ -63,3 +63,74 @@ class MyTestCase(unittest.TestCase):
         for i in my_multiples:
             baseline += 5
             self.assertEqual(i, baseline)
+
+    def test_is_last_digit_in_list(self):
+        self.my_number = 1000
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1001
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), False)
+
+        self.my_number = 1002
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1003
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), False)
+
+        self.my_number = 1004
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1005
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1006
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1007
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), False)
+
+        self.my_number = 1008
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), True)
+
+        self.my_number = 1009
+        self.assertEqual(f.is_last_digit_in_list(self.my_number), False)
+
+    def test_is_three_a_factor(self):
+        self.my_number = 333
+        self.assertEqual(f.is_three_a_factor(self.my_number), True)
+
+        self.my_number = 334
+        self.assertEqual(f.is_three_a_factor(self.my_number), False)
+
+        self.my_number = 335
+        self.assertEqual(f.is_three_a_factor(self.my_number), False)
+
+        self.my_number = 333333
+        self.assertEqual(f.is_three_a_factor(self.my_number), True)
+
+    def test_is_any_prime_a_factor(self):
+        primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+        self.my_number = 333
+        self.assertEqual(f.is_any_prime_a_factor(self.my_number, primes), True)
+
+        self.my_number = 5555
+        self.assertEqual(f.is_any_prime_a_factor(self.my_number, primes), True)
+
+        self.my_number = 7777
+        self.assertEqual(f.is_any_prime_a_factor(self.my_number, primes), True)
+
+        self.my_number = 1331
+        self.assertEqual(f.is_any_prime_a_factor(self.my_number, primes), True)
+
+        self.my_number = 2197
+        self.assertEqual(f.is_any_prime_a_factor(self.my_number, primes), True)
+
+    def test_is_number_prime(self):
+        primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+        self.my_number = 941
+        self.assertEqual(f.is_number_prime(self.my_number, primes), True)
+
+        self.my_number = 942
+        self.assertEqual(f.is_number_prime(self.my_number, primes), False)

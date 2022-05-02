@@ -62,3 +62,42 @@ def get_multipliers_sum_xor(_upper_limit):
 
     print(my_dividends)
     return my_sum
+
+
+def is_last_digit_in_list(x):
+    x_in_list = False
+    last_digit = get_last_digit(x)
+    if last_digit in [0, 2, 4, 5, 6, 8]:
+        x_in_list = True
+    return x_in_list
+
+
+def is_three_a_factor(_x):
+    three_is_a_factor = False
+    aux = _x
+    while aux > 9:
+        aux = compute_digits_sum(aux)
+    if aux == 3 or aux == 6 or aux == 9:
+        three_is_a_factor = True
+    return three_is_a_factor
+
+
+def is_any_prime_a_factor(_x, primes):
+    a_prime_is_a_factor = False
+    for prime in primes:
+        if prime != 1:
+            if _x % prime == 0:
+                a_prime_is_a_factor = True
+                break
+    return a_prime_is_a_factor
+
+
+def is_number_prime(_x, _primes):
+    number_is_prime = True
+    # print('is_number_prime - %s.' % _x)
+
+    if _x != 1 and _x != 2 and _x != 3 and _x != 5:
+        number_is_prime = not is_last_digit_in_list(_x)
+        number_is_prime = number_is_prime and (not is_last_digit_in_list(_x))
+        number_is_prime = number_is_prime and (not is_any_prime_a_factor(_x, _primes))
+    return number_is_prime
