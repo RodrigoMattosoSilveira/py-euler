@@ -134,3 +134,17 @@ class MyTestCase(unittest.TestCase):
 
         self.my_number = 942
         self.assertEqual(f.is_number_prime(self.my_number, primes), False)
+
+    def test_is_palindrome(self):
+        self.my_number = 9999
+        self.assertEqual(f.is_palindrome(self.my_number), True)
+
+        self.my_number = 998
+        self.assertEqual(f.is_palindrome(self.my_number), False)
+
+    def test_build_palindromic_numbers(self):
+        self.start = 10
+        self.end = 99
+        self.assertEqual(f.build_palindromic_numbers(self.start, self.end), [99, 88, 77, 66, 55, 44, 33, 22, 11])
+
+
