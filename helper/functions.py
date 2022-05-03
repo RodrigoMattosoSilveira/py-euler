@@ -1,3 +1,5 @@
+
+
 def compute_digits_sum(my_number):
     my_string = str(my_number)
     my_sum = 0
@@ -101,3 +103,41 @@ def is_number_prime(_x, _primes):
         number_is_prime = number_is_prime and (not is_last_digit_in_list(_x))
         number_is_prime = number_is_prime and (not is_any_prime_a_factor(_x, _primes))
     return number_is_prime
+
+
+# https://www.kdnuggets.com/2020/01/python-string-processing-primer.html
+# See item #10
+def is_palindrome(pn):
+    s = str(pn)
+    reverse = s[::-1]
+    if s == reverse:
+        return True
+    return False
+
+
+def build_palindromic_numbers(start, end):
+    # print('Building palindromic number between %s  and %s' % (start, end))
+    palindromic_numbers = []
+    for i in range(end, (start - 1), -1):
+        # print('Examining %s ' % i)
+        if  is_palindrome(i):
+            palindromic_numbers.append(i)
+    return palindromic_numbers
+
+
+def find_palindromic_with_factor_3_digits_long(palindromic_numbers):
+    response = -1
+    for pn in palindromic_numbers:
+        for first_factor in range(100, 1000):
+            if pn % first_factor == 0:
+                second_factor = int(pn / first_factor)
+                if second_factor < first_factor:
+                    break
+                else:
+                    second_factor_len =  len(str(second_factor))
+                    if second_factor_len == 3:
+                        response = pn
+        if response > -1:
+            break
+    return response
+
